@@ -1,5 +1,5 @@
 return {
-    { "ellisonleao/gruvbox.nvim", priority = 1000, config = true },
+    { "ellisonleao/gruvbox.nvim",        priority = 1000,    config = true },
     {
         "nvim-tree/nvim-tree.lua",
         version = "*",
@@ -19,6 +19,19 @@ return {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/nvim-cmp',
+    "rafamadriz/friendly-snippets",
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
+    {
+        "Exafunction/codeium.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "hrsh7th/nvim-cmp",
+        },
+        config = function()
+            require("codeium").setup({
+            })
+        end
+    },
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 }

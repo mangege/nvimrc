@@ -61,6 +61,7 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+        { name = "codeium" },
         { name = 'vsnip' }, -- For vsnip users.
     }, {
         { name = 'buffer' },
@@ -70,7 +71,7 @@ cmp.setup({
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
-local servers = { 'lua_ls', 'ruby_ls', 'rubocop', 'pyright', 'tsserver' }
+local servers = { 'lua_ls', 'ruby_ls', 'rubocop', 'pyright', 'tsserver', 'gopls' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         capabilities = capabilities,
