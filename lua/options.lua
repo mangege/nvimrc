@@ -30,9 +30,6 @@ vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true  -- but make it case sensitive if an uppercase is entered
 
 
-vim.o.background = "light"
-vim.cmd([[colorscheme gruvbox]])
-
 vim.api.nvim_set_keymap("n", "<C-h>", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
 
 vim.keymap.set({ 'n' }, '<C-s>', ':w<ENTER>')

@@ -3,6 +3,8 @@
 ## System
 
 ```
+git clone git@github.com:mangege/nvimrc.git nvim
+
 pacman -S ripgrep
 ```
 

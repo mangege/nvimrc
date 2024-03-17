@@ -1,5 +1,14 @@
 return {
-  { "ellisonleao/gruvbox.nvim",        priority = 1000,    config = true },
+  {
+    'maxmx03/solarized.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.o.background = 'light' -- or 'dark'
+
+      vim.cmd.colorscheme 'solarized'
+    end,
+  },
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
