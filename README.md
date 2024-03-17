@@ -3,7 +3,7 @@
 ## System
 
 ```
-ripgrep
+pacman -S ripgrep
 ```
 
 
