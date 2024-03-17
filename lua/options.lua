@@ -71,12 +71,20 @@ cmp.setup({
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
-local servers = { 'lua_ls', 'ruby_ls', 'rubocop', 'pyright', 'tsserver', 'gopls' }
+local servers = { 'lua_ls', 'pyright', 'tsserver', 'gopls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     capabilities = capabilities,
   }
 end
+lspconfig.ruby_ls.setup({
+  capabilities = capabilities,
+  cmd = { "bundle", "exec", "ruby-lsp" },
+})
+lspconfig.rubocop.setup({
+  capabilities = capabilities,
+  cmd = { "bundle", "exec", "rubocop" },
+})
 
 
 -- Use LspAttach autocommand to only map the following keys
