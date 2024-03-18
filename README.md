@@ -5,7 +5,7 @@
 ```
 git clone git@github.com:mangege/nvimrc.git nvim
 
-pacman -S ripgrep
+pacman -S ripgrep tree-sitter-cli
 ```
 
 
