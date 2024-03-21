@@ -6,6 +6,8 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 -- vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 
 vim.keymap.set({ 'n' }, '<leader>b', ':NvimTreeToggle<ENTER>')
+vim.keymap.set({ 'n' }, '<leader>v', ':NvimTreeFindFile<ENTER>')
+
 vim.keymap.set({ 'n' }, '<leader>t', ':tabnew %<ENTER>')
 
 vim.keymap.set({ 'n' }, '<C-s>', ':w<ENTER>')
