@@ -8,7 +8,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- Hint: use `:h <option>` to figure out the meaning if needed
-vim.opt.clipboard = 'unnamedplus' -- use system clipboard
+-- vim.opt.clipboard = 'unnamedplus' -- use system clipboard
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.mouse = 'i' -- 开启鼠标支持时, mac 的终端 command+c 无法复制,所以只在 insert 模式开启,方便编辑.普通模式方便复制
 
