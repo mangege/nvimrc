@@ -23,8 +23,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = "codeium" },
-    { name = 'vsnip' }, -- For vsnip users.
-  }, {
+    { name = 'vsnip' },
     { name = 'buffer' },
   })
 })
@@ -48,7 +47,7 @@ lspconfig.rubocop.setup({
 })
 
 
-vim.diagnostic.config({ virtual_text = false, underline = false, signs=false })
+vim.diagnostic.config({ virtual_text = false, underline = false, signs = false })
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
