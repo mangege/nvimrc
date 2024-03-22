@@ -47,7 +47,7 @@ lspconfig.rubocop.setup({
 })
 
 
-vim.diagnostic.config({ virtual_text = false, underline = false, signs = false })
+vim.diagnostic.config({ virtual_text = true, underline = false, signs = false })
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
