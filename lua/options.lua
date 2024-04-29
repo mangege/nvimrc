@@ -36,22 +36,29 @@ cmp.setup({
 })
 
 
+require("mason").setup()
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
-local servers = { 'lua_ls', 'pyright', 'tsserver', 'gopls' }
+local servers = { 'lua_ls', 'pyright', 'tsserver', 'ruby_ls', 'rubocop', 'html' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     capabilities = capabilities,
   }
 end
-lspconfig.ruby_ls.setup({
-  capabilities = capabilities,
-  cmd = { "bundle", "exec", "ruby-lsp" },
-})
-lspconfig.rubocop.setup({
-  capabilities = capabilities,
-  cmd = { "bundle", "exec", "rubocop", "--lsp" },
-})
+
+require "lspconfig".efm.setup {
+  init_options = { documentFormatting = true },
+  settings = {
+    rootMarkers = { ".git/" },
+    languages = {
+      eruby = {
+        { formatCommand = "htmlbeautifier", formatStdin = true }
+      }
+    }
+  },
+  filetypes = { 'eruby' }
+}
 
 
 vim.diagnostic.config({ virtual_text = true, underline = false, signs = false })

@@ -23,7 +23,7 @@ return {
   {
     'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' }
   },
-  -- lsp cmp
+  "williamboman/mason.nvim",
   'neovim/nvim-lspconfig',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-buffer',
