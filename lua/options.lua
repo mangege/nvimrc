@@ -51,7 +51,7 @@ lspconfig.rubocop.setup {
   capabilities = capabilities,
   cmd = { "bundle", "exec", "rubocop", "--lsp" }
 }
-lspconfig.ruby_ls.setup {
+lspconfig.ruby_lsp.setup {
   capabilities = capabilities,
   cmd = { "bundle", "exec", "ruby-lsp" }
 }
