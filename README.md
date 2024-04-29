@@ -20,7 +20,7 @@ rubocop 与 ruby-lsp 需要添加到 Gemfile 开发组里,主要还有 rubocop-r
 
 eruby 使用 efm lsp 来格式化,且在 efm 配置 htmlbeautifier .
 
-`nvim --headless -c "MasonInstall efm htmlbeautifier" -c qall`
+`nvim --headless -c "MasonInstall efm htmlbeautifier prettier" -c qall`
 
 ## LSP 选择参考:
 
