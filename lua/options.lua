@@ -40,15 +40,23 @@ require("mason").setup()
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
-local servers = { 'lua_ls', 'pyright', 'tsserver', 'ruby_ls', 'rubocop', 'html' }
+local servers = { 'lua_ls', 'pyright', 'tsserver', 'html', 'jsonls', 'cssls', 'eslint' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     capabilities = capabilities,
   }
 end
 
-require "lspconfig".efm.setup {
-  init_options = { documentFormatting = true },
+lspconfig.rubocop.setup {
+  capabilities = capabilities,
+  cmd = { "bundle", "exec", "rubocop", "--lsp" }
+}
+lspconfig.ruby_ls.setup {
+  capabilities = capabilities,
+  cmd = { "bundle", "exec", "ruby-lsp" }
+}
+lspconfig.efm.setup {
+  capabilities = capabilities,
   settings = {
     rootMarkers = { ".git/" },
     languages = {

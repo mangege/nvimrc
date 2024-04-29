@@ -15,4 +15,4 @@ pacman -S ripgrep tree-sitter-cli
 
 eruby 使用 efm lsp 来格式化,且在 efm 配置 htmlbeautifier .
 
-`nvim --headless -c "MasonInstall efm html-lsp htmlbeautifier lua-language-server rubocop ruby-lsp typescript-language-server" -c qall`
+`nvim --headless -c "MasonInstall efm html-lsp htmlbeautifier lua-language-server rubocop ruby-lsp typescript-language-server eslint-lsp json-lsp css-lsp" -c qall`
