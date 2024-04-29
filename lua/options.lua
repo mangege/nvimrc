@@ -57,15 +57,19 @@ lspconfig.ruby_ls.setup {
 }
 lspconfig.efm.setup {
   capabilities = capabilities,
+  init_options = { documentFormatting = true },
   settings = {
     rootMarkers = { ".git/" },
     languages = {
       eruby = {
         { formatCommand = "htmlbeautifier", formatStdin = true }
-      }
+      },
+      markdown = {
+        { formatCommand = "prettier --parser markdown" }
+      },
     }
   },
-  filetypes = { 'eruby' }
+  filetypes = { 'eruby', 'markdown' }
 }
 
 
