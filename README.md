@@ -22,8 +22,16 @@ eruby 使用 efm lsp 来格式化,且在 efm 配置 htmlbeautifier .
 
 `nvim --headless -c "MasonInstall efm htmlbeautifier prettier" -c qall`
 
+## Ruby Gemfile
+
+```rb
+gem 'rubocop', require: false
+gem 'rubocop-rails', require: false
+gem 'ruby-lsp', require: false
+gem 'ruby-lsp-rails', require: false
+```
+
 ## LSP 选择参考:
 
 - https://github.com/neoclide/coc.nvim/wiki/Language-servers
 - https://github.com/mattn/efm-langserver
-
