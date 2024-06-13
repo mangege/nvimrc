@@ -55,6 +55,7 @@ lspconfig.ruby_lsp.setup {
   capabilities = capabilities,
   cmd = { "bundle", "exec", "ruby-lsp" }
 }
+
 lspconfig.efm.setup {
   capabilities = capabilities,
   init_options = { documentFormatting = true },
@@ -67,9 +68,12 @@ lspconfig.efm.setup {
       markdown = {
         { formatCommand = "prettier --parser markdown" }
       },
+      python = {
+        { formatCommand = "black --quiet -", formatStdin = true }
+      },
     }
   },
-  filetypes = { 'eruby', 'markdown' }
+  filetypes = { 'eruby', 'markdown', 'python' }
 }
 
 
