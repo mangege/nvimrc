@@ -69,7 +69,8 @@ lspconfig.efm.setup {
         { formatCommand = "prettier --parser markdown" }
       },
       python = {
-        { formatCommand = "black --quiet -", formatStdin = true }
+        { formatCommand = "black --quiet -", formatStdin = true },
+        { formatCommand = "isort --quiet -", formatStdin = true }
       },
     }
   },
