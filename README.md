@@ -14,7 +14,7 @@ pacman -S ripgrep tree-sitter-cli
 
 rubocop 与 ruby-lsp 需要添加到 Gemfile 开发组里,主要还有 rubocop-rails 与 ruby-lsp-rails 通过 mason 安装无法集成.
 
-`nvim --headless -c "MasonInstall html-lsp lua-language-server typescript-language-server eslint-lsp json-lsp css-lsp" -c qall`
+`nvim --headless -c "MasonInstall pyright html-lsp lua-language-server typescript-language-server eslint-lsp json-lsp css-lsp" -c qall`
 
 ## Format
 
