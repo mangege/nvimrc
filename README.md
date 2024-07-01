@@ -3,9 +3,13 @@
 ## Install
 
 ```
+cd ~/.config
 git clone git@github.com:mangege/nvimrc.git nvim
 
-pacman -S ripgrep tree-sitter-cli
+# pacman -S ripgrep tree-sitter-cli
+# apt install -y ripgrep
+
+nvim
 ```
 
 ## LSP
