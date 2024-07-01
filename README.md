@@ -12,6 +12,12 @@ git clone git@github.com:mangege/nvimrc.git nvim
 nvim
 ```
 
+## Nerd Font
+
+1. Download a Nerd Font
+2. Unzip and copy to ~/.fonts
+3. Run the command `fc-cache -fv` to manually rebuild the font cache
+
 ## LSP
 
 使用 mason 安装 Lsp 服务端, 但不使用 mason-lspconfig.nvim 配置,因为与 nvim-cmp 不兼容,所以采用自己手动配置.
