@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Neovim 配置检查脚本
 
 echo "==================================="
