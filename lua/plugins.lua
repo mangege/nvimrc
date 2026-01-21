@@ -126,4 +126,30 @@ return {
       })
     end,
   },
+
+  -- Git 集成
+  {
+    "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("gitsigns").setup({
+        signs = {
+          add          = { text = '│' },
+          change       = { text = '│' },
+          delete       = { text = '_' },
+          topdelete    = { text = '‾' },
+          changedelete = { text = '~' },
+          untracked    = { text = '┆' },
+        },
+        current_line_blame = true, -- 显示当前行的 blame 信息
+        current_line_blame_opts = {
+          virt_text = true,
+          virt_text_pos = 'eol', -- 在行尾显示
+          delay = 500, -- 延迟 500ms 显示
+          ignore_whitespace = false,
+        },
+        current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+      })
+    end,
+  },
 }
