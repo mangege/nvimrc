@@ -37,6 +37,14 @@ return {
             vertical = 'down:50%',
           },
         },
+        -- 文件搜索配置(使用 find 命令)
+        files = {
+          find_opts = [[-type f ! -path '*/node_modules/*' ! -path '*/.git/*']],
+        },
+        -- 内容搜索配置(使用 grep 命令)
+        grep = {
+          grep_opts = [[--binary-files=without-match --line-number --recursive --color=auto --perl-regexp --exclude-dir=node_modules --exclude-dir=.git -e]],
+        },
       })
     end,
   },
