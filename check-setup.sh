@@ -63,8 +63,30 @@ for tool in "${tools[@]}"; do
 done
 echo ""
 
+# 检查核心依赖工具
+echo "5. 核心依赖工具 (fzf-lua 需要):"
+
+if command -v rg &> /dev/null; then
+  echo "  ✓ ripgrep (rg)"
+else
+  echo "  ✗ ripgrep (未安装，运行: brew install ripgrep 或 sudo apt install ripgrep)"
+fi
+
+if command -v fd &> /dev/null; then
+  echo "  ✓ fd"
+else
+  echo "  ✗ fd (未安装，运行: brew install fd 或 sudo apt install fd-find)"
+fi
+
+if command -v fzf &> /dev/null; then
+  echo "  ✓ fzf"
+else
+  echo "  ✗ fzf (未安装，运行: brew install fzf 或 sudo apt install fzf)"
+fi
+echo ""
+
 # 检查格式化工具
-echo "5. 系统格式化工具:"
+echo "6. 系统格式化工具:"
 
 if command -v black &> /dev/null; then
   echo "  ✓ black (Python)"
@@ -92,6 +114,30 @@ echo "==================================="
 
 if [ ! -d "$LAZY_DIR/mason.nvim" ]; then
   echo "• 打开 Neovim 并运行 :Lazy sync 安装插件"
+fi
+
+# 检查核心依赖
+MISSING_DEPS=false
+
+if ! command -v rg &> /dev/null; then
+  echo "• 安装 ripgrep (必需): brew install ripgrep 或 sudo apt install ripgrep"
+  MISSING_DEPS=true
+fi
+
+if ! command -v fd &> /dev/null; then
+  echo "• 安装 fd (必需): brew install fd 或 sudo apt install fd-find"
+  MISSING_DEPS=true
+fi
+
+if ! command -v fzf &> /dev/null; then
+  echo "• 安装 fzf (必需): brew install fzf 或 sudo apt install fzf"
+  MISSING_DEPS=true
+fi
+
+if [ "$MISSING_DEPS" = true ]; then
+  echo ""
+  echo "  注意: 缺少核心依赖将导致文件搜索功能无法正常工作！"
+  echo ""
 fi
 
 echo "• 在 Neovim 中运行 :SupermavenLogin 完成 AI 补全认证"

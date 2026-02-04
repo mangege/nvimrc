@@ -3,7 +3,7 @@
 现代化的 Neovim 配置，针对 Ruby、Python 和 JavaScript/TypeScript 开发优化。
 
 **性能优先设计：**
-- 🚀 使用 fzf-lua 实现极速搜索（比 Telescope 快 2-5 倍）
+- 🚀 使用 fzf-lua + fd + ripgrep 实现极速搜索（比 Telescope 快 2-5 倍）
 - ⚡ 使用 conform.nvim 实现快速格式化（比 none-ls 快 2-3 倍）
 - 📦 精简插件数量，减少启动时间
 
@@ -35,7 +35,7 @@ git clone git@github.com:mangege/nvimrc.git nvim
 **macOS:**
 ```bash
 # 必需
-brew install neovim ripgrep fzf
+brew install neovim ripgrep fd fzf
 
 # 推荐（用于 Treesitter 编译和插件支持）
 brew install tree-sitter luarocks
@@ -44,7 +44,11 @@ brew install tree-sitter luarocks
 **Ubuntu/Debian:**
 ```bash
 # 必需
-sudo apt install -y neovim ripgrep fzf
+sudo apt install -y neovim ripgrep fd-find fzf
+
+# 在某些 Debian/Ubuntu 版本中，fd 命令名为 fd-find，需要创建符号链接
+mkdir -p ~/.local/bin
+ln -s $(which fdfind) ~/.local/bin/fd
 
 # 推荐（用于 Treesitter 编译和插件支持）
 sudo apt install -y tree-sitter-cli luarocks
@@ -56,7 +60,7 @@ sudo apt install -y tree-sitter-cli luarocks
 **Arch Linux:**
 ```bash
 # 必需
-sudo pacman -S neovim ripgrep fzf
+sudo pacman -S neovim ripgrep fd fzf
 
 # 推荐（用于 Treesitter 编译和插件支持）
 sudo pacman -S tree-sitter luarocks
@@ -65,7 +69,8 @@ sudo pacman -S tree-sitter luarocks
 #### 依赖说明
 
 - **neovim** - Neovim 编辑器（必需）
-- **ripgrep** - 快速文件搜索工具，fzf-lua 需要（必需）
+- **ripgrep** - 快速内容搜索工具，用于在文件中搜索文本，fzf-lua 需要（必需）
+- **fd** - 快速文件查找工具，用于查找文件，fzf-lua 需要（必需）
 - **fzf** - 模糊搜索工具，fzf-lua 需要（必需）
 - **tree-sitter-cli** - Treesitter 命令行工具，用于编译语法解析器（推荐）
 - **luarocks** - Lua 包管理器，某些插件可能需要（推荐）
