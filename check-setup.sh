@@ -23,7 +23,6 @@ plugins=(
   "nvim-cmp"
   "conform.nvim"
   "nvim-lint"
-  "supermaven-nvim"
   "nvim-treesitter"
   "fzf-lua"
   "nvim-tree.lua"
@@ -38,14 +37,8 @@ for plugin in "${plugins[@]}"; do
 done
 echo ""
 
-# 检查 AI 配置
-echo "3. AI 配置检查:"
-echo "  ℹ Supermaven 需要在 Neovim 中运行 :SupermavenLogin 完成认证"
-echo "  运行 :SupermavenStatus 检查状态"
-echo ""
-
 # 检查 LSP 工具
-echo "4. LSP 工具安装状态:"
+echo "3. LSP 工具安装状态:"
 MASON_BIN="$HOME/.local/share/nvim/mason/bin"
 
 tools=(
@@ -64,7 +57,7 @@ done
 echo ""
 
 # 检查核心依赖工具
-echo "5. 核心依赖工具 (fzf-lua 需要):"
+echo "4. 核心依赖工具 (fzf-lua 需要):"
 
 if command -v rg &> /dev/null; then
   echo "  ✓ ripgrep (rg)"
@@ -86,7 +79,7 @@ fi
 echo ""
 
 # 检查格式化工具
-echo "6. 系统格式化工具:"
+echo "5. 系统格式化工具:"
 
 if command -v black &> /dev/null; then
   echo "  ✓ black (Python)"
@@ -139,8 +132,6 @@ if [ "$MISSING_DEPS" = true ]; then
   echo "  注意: 缺少核心依赖将导致文件搜索功能无法正常工作！"
   echo ""
 fi
-
-echo "• 在 Neovim 中运行 :SupermavenLogin 完成 AI 补全认证"
 
 if [ ! -f "$MASON_BIN/lua-language-server" ]; then
   echo "• 在 Neovim 中运行 :Mason 安装 LSP 服务器"

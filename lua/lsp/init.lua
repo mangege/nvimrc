@@ -37,7 +37,6 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp', priority = 1000 },
-    { name = 'supermaven', priority = 700 },
     { name = 'buffer', priority = 500 },
     { name = 'path', priority = 250 },
   }),
@@ -46,7 +45,6 @@ cmp.setup({
       -- 添加来源标识
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
-        supermaven = "[AI]",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]

@@ -2,7 +2,7 @@
 
 现代化的 Neovim 配置，针对 Ruby、Python 和 JavaScript/TypeScript 开发优化。
 
-**性能优先设计：**
+**性能优先 design：**
 - 🚀 使用 fzf-lua + fd + ripgrep 实现极速搜索（比 Telescope 快 2-5 倍）
 - ⚡ 使用 conform.nvim 实现快速格式化（比 none-ls 快 2-3 倍）
 - 📦 精简插件数量，减少启动时间
@@ -10,13 +10,12 @@
 ## 特性
 
 - 使用 [lazy.nvim](https://github.com/folke/lazy.nvim) 进行插件管理
-- 通过 [Mason](https://github.com/williamboman/mason.nvim) 自动安装和管理 LSP 服务器
+- 通过 [Mason](https://github.com/williamboman/mason.nvim) 自动安装和 management LSP 服务器
 - 使用 [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) 提供智能补全
 - 使用 [conform.nvim](https://github.com/stevearc/conform.nvim) 进行快速代码格式化
 - 使用 [nvim-lint](https://github.com/mfussenegger/nvim-lint) 进行代码 linting
 - 使用 [fzf-lua](https://github.com/ibhagwan/fzf-lua) 进行极速模糊搜索
 - 使用 [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) 提供文件浏览器
-- 集成 [Supermaven](https://github.com/supermaven-inc/supermaven-nvim) AI 代码补全
 - 使用 [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter) 提供语法高亮和代码理解
 
 ## 安装
@@ -94,7 +93,6 @@ nvim
 
 这会检查：
 - 所有插件安装状态
-- API Key 配置
 - LSP 工具安装
 - 格式化工具
 
@@ -334,58 +332,6 @@ bundle install
 - ✅ 自动 fallback 到全局工具
 - ✅ 支持范围格式化（Visual 模式）
 - ✅ 更清晰的架构（格式化和 linting 分离）
-
-## AI 代码补全配置
-
-配置集成了 [Supermaven](https://supermaven.com/) 提供快速的 AI 代码补全功能。
-
-### 设置步骤
-
-1. **访问 Supermaven 网站并注册**
-   - 访问 [supermaven.com](https://supermaven.com/)
-   - 创建免费账号
-
-2. **在 Neovim 中认证**
-
-   首次启动 Neovim 后，使用以下命令开始认证：
-   ```vim
-   :SupermavenStart
-   ```
-
-   然后使用以下命令完成登录：
-   ```vim
-   :SupermavenLogin
-   ```
-
-   这会提供登录链接完成认证流程。
-
-3. **使用补全**
-
-   Supermaven 会自动在编辑器中提供代码建议：
-   - 补全建议会自动出现在补全菜单中，标记为 `[AI]`
-   - 按 `Tab` 选择下一项补全
-   - 按 `Enter` 确认补全
-
-### 功能特性
-
-- ✅ 极快的补全速度（比其他工具快 2-3 倍）
-- ✅ 支持多种编程语言
-- ✅ 100 万 token 上下文窗口
-- ✅ 高质量代码建议
-- ✅ 与 LSP 补全无缝集成
-- ✅ 在补全菜单中显示为 `[AI]` 来源
-
-### 常用命令
-
-```vim
-:SupermavenStart        " 启动 Supermaven
-:SupermavenStop         " 停止 Supermaven
-:SupermavenRestart      " 重启 Supermaven
-:SupermavenToggle       " 切换启用/禁用
-:SupermavenStatus       " 查看状态
-:SupermavenLogin        " 登录/认证
-:SupermavenLogout       " 登出
-```
 
 ## Mason 管理
 

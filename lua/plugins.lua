@@ -92,14 +92,6 @@ return {
       require("lsp.lint")
     end,
   },
-  -- AI 代码补全
-  {
-    "supermaven-inc/supermaven-nvim",
-    config = function()
-      require("supermaven-nvim").setup({})
-    end
-  },
-
   -- Treesitter（语法高亮和代码理解）
   {
     "nvim-treesitter/nvim-treesitter",
