@@ -71,50 +71,23 @@ cmp.setup.cmdline('/', {
 })
 
 -- ============================================================================
--- 2. LSP 服务器配置
+-- 2. LSP 服务器配置 (Neovim 0.11+ 原生方式)
 -- ============================================================================
-local lspconfig_ok, lspconfig = pcall(require, 'lspconfig')
-if not lspconfig_ok then
-  vim.notify("lspconfig not found", vim.log.levels.WARN)
-  return
-end
-
 local cmp_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-local capabilities = nil
 if cmp_lsp_ok then
-  capabilities = cmp_nvim_lsp.default_capabilities()
+  vim.lsp.config("*", {
+    capabilities = cmp_nvim_lsp.default_capabilities(),
+  })
 end
 
 local servers = require("lsp.servers")
 
--- Mason-lspconfig 桥接
-local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-
-if not mason_lspconfig_ok then
-  -- 插件未安装
-  return
+for server_name, server_config in pairs(servers.servers) do
+  vim.lsp.config(server_name, server_config)
 end
 
-if not mason_lspconfig.setup_handlers then
-  -- 插件还在加载中，跳过配置，下次启动时会生效
-  return
-end
-
--- mason-lspconfig 已完全加载，正常配置
-mason_lspconfig.setup({
-  ensure_installed = servers.ensure_installed,
-  automatic_installation = true,
-})
-
--- 使用自动配置所有服务器
-mason_lspconfig.setup_handlers({
-  -- 默认处理器
-  function(server_name)
-    local server_config = servers.servers[server_name] or {}
-    server_config.capabilities = capabilities
-    lspconfig[server_name].setup(server_config)
-  end,
-})
+-- 启用所有配置的服务器
+vim.lsp.enable(vim.tbl_keys(servers.servers))
 
 -- ============================================================================
 -- 3. 诊断配置
@@ -124,7 +97,14 @@ vim.diagnostic.config({
     prefix = '●',
     source = "if_many",
   },
-  signs = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.HINT] = " ",
+      [vim.diagnostic.severity.INFO] = " ",
+    },
+  },
   underline = true,
   update_in_insert = false,
   severity_sort = true,
@@ -136,21 +116,14 @@ vim.diagnostic.config({
   },
 })
 
--- 修改诊断符号
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
 -- ============================================================================
 -- 4. 键位映射
 -- ============================================================================
 
 -- 全局诊断键位
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open diagnostic float" })
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
+vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Go to previous diagnostic" })
+vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Go to next diagnostic" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostic list" })
 
 -- LSP attach 时的键位映射
