@@ -88,6 +88,19 @@ M.servers = {
     },
   },
 
+  -- Go
+  gopls = {
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+        gofumpt = true,
+      },
+    },
+  },
+
   html = {},
   cssls = {},
   jsonls = {},
@@ -104,6 +117,7 @@ M.ensure_installed = {
   "html",
   "cssls",
   "jsonls",
+  "gopls",
 }
 
 return M

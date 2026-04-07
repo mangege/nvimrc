@@ -108,7 +108,7 @@ return {
       end
 
       treesitter_configs.setup({
-        ensure_installed = { "lua", "python", "javascript", "typescript", "ruby", "html", "css", "json", "markdown" },
+        ensure_installed = { "lua", "python", "javascript", "typescript", "ruby", "html", "css", "json", "markdown", "go", "gomod", "gosum" },
         sync_install = false,
         auto_install = true,
         highlight = {
