@@ -105,6 +105,18 @@ nvim
 
 图标显示需要 Nerd Font：
 
+**macOS:**
+```bash
+brew install font-hack-nerd-font
+```
+
+**Arch Linux:**
+```bash
+sudo pacman -S ttf-hack-nerd
+```
+
+**其他系统（手动安装）：**
+
 1. 从 [Nerd Fonts](https://www.nerdfonts.com/) 下载字体
 2. 解压并复制到 `~/.fonts`
 3. 重建字体缓存：`fc-cache -fv`
